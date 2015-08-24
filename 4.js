@@ -1,9 +1,5 @@
 var fs = require('fs');
 
-String.prototype.repeat = function(n) {
-    return (n < 2 ? this : this+this.repeat(n - 1));
-};
-
 if (process.argv.length === 3) {
     main(process.argv[2]);
 } else {
@@ -13,34 +9,33 @@ if (process.argv.length === 3) {
 }
 
 function main(exp) {
-    var res = '',
-        d;
-
-    var baseList = [1000, 500, 100, 50, 10, 5, 1],
-        charList = ['M', 'D', 'C', 'L', 'X', 'V', 'I'];
-
-    exp = Number(exp);
-    while (exp > 0) {
-        while (true) {
-            d = Math.floor(exp / baseList[0]);
-            if (d !== 0) break;
-            baseList.shift();
-            charList.shift();
+    var i = 0,
+        res = 0,
+        v, lastV;
+    for (i = 0; i < exp.length; i++) {
+        v = toNumber(exp.charAt(i));
+        if (lastV < v) {
+            res -= lastV;
+            res += v-lastV;
+        } else {
+            res += v;
         }
-
-        exp -= baseList[0] * d;
-        res += charList[0].repeat(d);
-        baseList.shift();
-        charList.shift();
+        lastV = v;
     }
 
-    res = res
-        .replace(/DCCCC/g, 'CM')
-        .replace(/CCCC/g, 'DM')
-        .replace(/LXXXX/g, 'XC')
-        .replace(/XXXX/g, 'XL')
-        .replace(/VIIII/g, 'IX')
-        .replace(/IIII/g, 'IV')
-
     console.log(res);
+}
+
+function toNumber(w) {
+    var map = {
+        'I': 1,
+        'V': 5,
+        'X': 10,
+        'L': 50,
+        'C': 100,
+        'D': 500,
+        'M': 1000
+    };
+
+    return map[w];
 }
