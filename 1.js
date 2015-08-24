@@ -35,5 +35,6 @@ function toDEC(exp, baseFrom) {
  * @return {number} 変換結果
  */
 function toDECNumber(w) {
-    return Number(w);
+    var map = '0123456789';
+    return map.indexOf(w);
 }
