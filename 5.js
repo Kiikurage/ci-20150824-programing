@@ -13,7 +13,7 @@ if (process.argv.length === 3) {
 }
 
 function main(input) {
-    console.log(encodeRomanNumberExpression(input));
+    console.log(encodeRomanNumeralExpression(input));
 }
 
 /**
@@ -21,7 +21,7 @@ function main(input) {
  * @param {string|number} input 入力数字列
  * @return {number} 変換結果
  */
-function encodeRomanNumberExpression(input) {
+function encodeRomanNumeralExpression(input) {
     var res = '',
         baseList = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1],
         charList = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'],

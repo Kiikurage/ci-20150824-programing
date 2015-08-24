@@ -9,7 +9,7 @@ if (process.argv.length === 3) {
 }
 
 function main(input) {
-    console.log(decodeRomanNumberExpression(input));
+    console.log(decodeRomanNumeralExpression(input));
 }
 
 /**
@@ -17,12 +17,12 @@ function main(input) {
  * @param {string} input 入力数字列
  * @return {number} 変換結果
  */
-function decodeRomanNumberExpression(input){
+function decodeRomanNumeralExpression(input){
     var i = 0,
         res = 0,
         v, lastV;
     for (i = 0; i < input.length; i++) {
-        v = decodeRomanNumber(input.charAt(i));
+        v = decodeRomanNumeral(input.charAt(i));
         if (lastV < v) {
             res -= lastV;
             res += v-lastV;
@@ -40,7 +40,7 @@ function decodeRomanNumberExpression(input){
  * @param {string} w ローマ数字
  * @return {number} 変換結果
  */
-function decodeRomanNumber(w) {
+function decodeRomanNumeral(w) {
     var map = {
         'I': 1,
         'V': 5,
