@@ -19,5 +19,5 @@ echo '7.js "fifty four thousand three hundred twelve" --> 54312'
 node 7.js "fifty four thousand three hundred twelve"
 echo '7.js "one thousand two hundred" --> 1200'
 node 7.js "one thousand two hundred"
-echo '7.js "twelve hundred" --> 54312'
+echo '7.js "twelve hundred" --> 1200'
 node 7.js "twelve hundred"
