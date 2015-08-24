@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo '1.js 123 --> 27'
+node 1.js 123
+
+echo '2.js bcd --> 83'
+node 2.js bcd
+
+echo '4.js MCMIV --> 1904'
+node 4.js MCMIV
+
+echo '5.js 1904 --> MCMIV'
+node 5.js 1904
+
+echo '6.js 149 --> CIL'
+node 6.js 149
+
+echo '7.js "fifty four thousand three hundred twelve" --> 54312'
+node 7.js "fifty four thousand three hundred twelve"
+echo '7.js "one thousand two hundred" --> 1200'
+node 7.js "one thousand two hundred"
+echo '7.js "twelve hundred" --> 54312'
+node 7.js "twelve hundred"
