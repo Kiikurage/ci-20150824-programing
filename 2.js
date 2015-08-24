@@ -9,32 +9,23 @@ if (process.argv.length === 3) {
 }
 
 function main(input) {
-    console.log(toDEC(input, 8));
+    console.log(toDEC(input, 'abcdefgh'));
 }
 
 /**
  * 入力された数字列を10進数に変換する
  * @param {string} exp 入力数字列
- * @param {number} baseFrom 基数
+ * @param {string} map 用いる記号列
  * @return {number} 変換結果
  */
-function toDEC(exp, baseFrom) {
+function toDEC(exp, map) {
     var i = 0,
-        res = 0;
+        res = 0,
+        base = map.length;
     for (i = 0; i < exp.length; i++) {
-        res *= baseFrom;
-        res += toDECNumber(exp.charAt(i));
+        res *= base;
+        res += map.indexOf(exp.charAt(i));
     }
 
     return res;
-}
-
-/**
- * 入力された数字を10進数に変換する
- * @param {string} w 数字
- * @return {number} 変換結果
- */
-function toDECNumber(w) {
-    var map = 'abcdefgh';
-    return map.indexOf(w);
 }
