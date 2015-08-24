@@ -1,5 +1,7 @@
 var fs = require('fs');
 
+var DEBUG = process.env.DEBUG || false;
+
 String.prototype.repeat = function(n) {
     return (n < 2 ? this : this+this.repeat(n - 1));
 };
@@ -39,6 +41,7 @@ function encodeRomanNumeralExpression(input) {
         cover = calcCover(input);
 
         if (cover.result) {
+            if (DEBUG) console.log('[DEBUG] %d + %d = %d, %s->', input, cover.value, input+cover.value, res, res+charList[baseList.indexOf(cover.value)]);
             input += cover.value;
             //毎回、高々1個しか記号は追加されない
             //（記号を追加した後、本来の隣接する記号βが置かれる）ので、
@@ -52,6 +55,8 @@ function encodeRomanNumeralExpression(input) {
             baseList.shift();
             charList.shift();
         }
+
+        if (DEBUG) console.log('[DEBUG] %d - %d = %d, %s->', input, baseList[0]*d, input-baseList[0]*d, res, res+charList[0].repeat(d));
 
         input -= baseList[0] * d;
         res += charList[0].repeat(d);
