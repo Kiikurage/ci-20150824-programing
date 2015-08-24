@@ -8,9 +8,25 @@ node 2.js bcd
 
 echo '4.js MCMIV --> 1904'
 node 4.js MCMIV
+echo '4.js II --> 2'
+node 4.js II
+echo '4.js XIII --> 13'
+node 4.js XIII
+echo '4.js CCVII --> 207'
+node 4.js CCVII
+echo '4.js MLXVI --> 1066'
+node 4.js MLXVI
 
 echo '5.js 1904 --> MCMIV'
 node 5.js 1904
+echo '5.js 2 --> II'
+node 5.js 2
+echo '5.js 13 --> XIII'
+node 5.js 13
+echo '5.js 207 --> CCVII'
+node 5.js 207
+echo '5.js 1066 --> MLXVI'
+node 5.js 1066
 
 echo '6.js 149 --> CIL'
 node 6.js 149
